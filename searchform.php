@@ -1,0 +1,24 @@
+<?php
+/**
+ * Custom Search Form
+ *
+ * @package Acme Themes
+ * @subpackage Education Base
+ */
+$education_base_customizer_all_values = education_base_get_theme_options();
+?>
+<div class="search-block">
+	<form action="<?php echo esc_url( home_url() ); ?>" class="searchform" id="searchform" method="get" role="search">
+		<div>
+			<label for="menu-search" class="screen-reader-text"></label>
+			<?php
+			$placeholder_text = '';
+			if ( isset( $education_base_customizer_all_values['education-base-search-placholder'] ) ) :
+				$placeholder_text = ' placeholder="' . esc_attr( $education_base_customizer_all_values['education-base-search-placholder'] ) . '" ';
+			endif;
+			?>
+			<input type="text" <?php echo esc_attr( $placeholder_text ); ?> class="menu-search" id="menu-search" name="s" value="<?php echo esc_attr( get_search_query() ); ?>">
+			<button class="searchsubmit fa fa-search" type="submit" id="searchsubmit"></button>
+		</div>
+	</form>
+</div>
